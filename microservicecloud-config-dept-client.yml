@@ -1,0 +1,79 @@
+spring:
+  profiles:
+    active:
+    - dev
+    
+---
+server:
+  profiles: dev
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis�����ļ�����·��
+  type-aliases-package: com.xdy.springcloud.entities    # ����Entity���������ڰ�
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapperӳ���ļ�
+
+spring:
+   application:
+    name: microservicecloud-dept
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # ��ǰ����Դ��������
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql������
+    url: jdbc:mysql://hdp-04:3306/cloudDB01              # ���ݿ�����
+    username: root
+    password: Root_123
+    dbcp2:
+      min-idle: 5                                           # ���ݿ����ӳص���Сά��������
+      initial-size: 5                                       # ��ʼ��������
+      max-total: 5                                          # ���������
+      max-wait-millis: 200
+eureka:
+  client:
+    service-url:                     # �ȴ����ӻ�ȡ�����ʱʱ��
+      #defaultZone:  http://localhost:7001/eureka/
+      defaultZone:  http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-dept8001
+    prefer-ip-address: true
+info:
+  name: xiedongyu
+  artifactId: ${spring.application.name}
+  
+    
+---
+server:
+  profiles: test
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis�����ļ�����·��
+  type-aliases-package: com.xdy.springcloud.entities    # ����Entity���������ڰ�
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapperӳ���ļ�
+
+spring:
+   application:
+    name: microservicecloud-dept
+   datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # ��ǰ����Դ��������
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql������
+    url: jdbc:mysql://hdp-04:3306/cloudDB02              # ���ݿ�����
+    username: root
+    password: Root_123
+    dbcp2:
+      min-idle: 5                                           # ���ݿ����ӳص���Сά��������
+      initial-size: 5                                       # ��ʼ��������
+      max-total: 5                                          # ���������
+      max-wait-millis: 200
+eureka:
+  client:
+    service-url:                     # �ȴ����ӻ�ȡ�����ʱʱ��
+      #defaultZone:  http://localhost:7001/eureka/
+      defaultZone:  http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-dept8001
+    prefer-ip-address: true
+info:
+  name: xiedongyu
+  artifactId: ${spring.application.name}  
