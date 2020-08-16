@@ -4,14 +4,6 @@ spring:
     - dev
     
 ---
-server:
-  port: 8001
-
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis�����ļ�����·��
-  type-aliases-package: com.xdy.springcloud.entities    # ����Entity���������ڰ�
-  mapper-locations:
-  - classpath:mybatis/mapper/**/*.xml                       # mapperӳ���ļ�
 
 spring:
    profiles: dev
@@ -26,6 +18,16 @@ spring:
       initial-size: 5                                       # ��ʼ��������
       max-total: 5                                          # ���������
       max-wait-millis: 200
+
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis�����ļ�����·��
+  type-aliases-package: com.xdy.springcloud.entities    # ����Entity���������ڰ�
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapperӳ���ļ�
+
 eureka:
   client:
     service-url:                     # �ȴ����ӻ�ȡ�����ʱʱ��
@@ -40,15 +42,6 @@ info:
   
     
 ---
-server:
-  port: 8001
-
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis�����ļ�����·��
-  type-aliases-package: com.xdy.springcloud.entities    # ����Entity���������ڰ�
-  mapper-locations:
-  - classpath:mybatis/mapper/**/*.xml                       # mapperӳ���ļ�
-
 spring:
    profiles: test
    datasource:
@@ -62,6 +55,15 @@ spring:
       initial-size: 5                                       # ��ʼ��������
       max-total: 5                                          # ���������
       max-wait-millis: 200
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis�����ļ�����·��
+  type-aliases-package: com.xdy.springcloud.entities    # ����Entity���������ڰ�
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapperӳ���ļ�
+
 eureka:
   client:
     service-url:                     # �ȴ����ӻ�ȡ�����ʱʱ��
